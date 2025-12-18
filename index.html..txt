@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Glitch | تحويل الغلط لصح</title>
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --dark-bg: #0a0a0a;
+            --glitch-pink: #ff00ff;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-green);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--glitch-pink);
+            text-shadow: 2px 2px var(--neon-green);
+        }
+
+        p { color: #ccc; }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: var(--neon-green);
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background: var(--glitch-pink);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        #result-box {
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px dashed var(--neon-green);
+            display: none;
+        }
+
+        .sparkle {
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Glitch To Gold</h1>
+        <p>Mistakes unlock innovation. Enter your <strong>worst</strong> idea below:</p>
+        
+        <textarea id="badIdea" placeholder="مثلاً: ابلكيشن بيخلي الناس تتخانق بدل ما تتصالح..."></textarea>
+        
+        <br>
+        <button onclick="transformIdea()">Transform into Innovation ✨</button>
+
+        <div id="result-box">
+            <h3>The Innovation:</h3>
+            <p id="goodIdeaText"></p>
+        </div>
+    </div>
+
+    <script>
+        function transformIdea() {
+            const badInput = document.getElementById('badIdea').value;
+            const resultBox = document.getElementById('result-box');
+            const resultText = document.getElementById('goodIdeaText');
+
+            if(badInput.trim() === "") {
+                alert("Please write a bad idea first!");
+                return;
+            }
+
+            // Simple Logic for demo - In real life, this would call an AI API
+            resultBox.style.display = "block";
+            resultText.innerHTML = "Thinking...";
+
+            setTimeout(() => {
+                // Example of how the logic works
+                resultText.innerHTML = `<span class="sparkle">Pivot:</span> If the bad idea is "${badInput}", the innovation is to use that friction to study human behavior and build a conflict-resolution tool that gamifies peace!`;
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>
